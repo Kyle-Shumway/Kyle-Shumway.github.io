@@ -211,18 +211,13 @@
         submitButton.disabled = true;
         
         try {
-            // TODO: Replace with actual Formspree endpoint
-            // const response = await fetch(contactForm.action, {
-            //     method: 'POST',
-            //     body: formData,
-            //     headers: {
-            //         'Accept': 'application/json'
-            //     }
-            // });
-            
-            // Simulate form submission for demo
-            await new Promise(resolve => setTimeout(resolve, 1000));
-            const response = { ok: true }; // Simulated success
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
             
             if (response.ok) {
                 showFormMessage('success', 'Thank you! We\'ll get back to you within 24 hours.');
